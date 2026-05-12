@@ -3,54 +3,67 @@ import { Badge } from "@/components/ui/badge";
 import { projects } from "@/data/projects";
 
 export default function Home() {
+  // Filtrage des projets par type
   const stages = projects.filter(p => p.type === "Stage");
   const hackathons = projects.filter(p => p.type === "Hackathon");
   const mainProjects = projects.filter(p => p.type === "Projet");
   const miniProjects = projects.filter(p => p.type === "Mini-Projet");
 
   return (
-    // Fond légèrement teinté en bleu très clair (slate-50) pour un aspect moins agressif que le blanc pur
     <main className="min-h-screen bg-slate-50/50 max-w-5xl mx-auto py-16 px-6 font-sans text-slate-900">
       
-      {/* --- HERO SECTION --- */}
-      <header className="mb-24 flex flex-col md:flex-row items-center md:items-start gap-12">
+      {/* --- HERO SECTION AGRANDIE --- */}
+      <header className="mb-28 flex flex-col md:flex-row items-center md:items-center gap-16 min-h-[400px]">
+        {/* Photo de profil avec effet de profondeur */}
         <div className="shrink-0">
-          <img 
-            src="/profile.png" 
-            alt="Maryam Gadi" 
-            className="w-44 h-44 rounded-3xl object-cover border-4 border-white shadow-2xl shadow-blue-100"
-          />
+          <div className="relative">
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-sky-400 rounded-3xl blur opacity-20"></div>
+            <img 
+              src="/profile.png" 
+              alt="Maryam Gadi" 
+              className="relative w-56 h-56 md:w-64 md:h-64 rounded-3xl object-cover border-4 border-white shadow-2xl shadow-blue-100/50"
+            />
+          </div>
         </div>
 
-        <div className="space-y-6 text-center md:text-left">
-          <div className="space-y-3">
-            <h1 className="text-5xl font-extrabold tracking-tight text-slate-800">
+        <div className="space-y-8 text-center md:text-left flex-1">
+          <div className="space-y-4">
+            <div className="inline-block px-4 py-1.5 bg-blue-50 text-blue-700 rounded-lg text-sm font-bold uppercase tracking-wider">
+              Élève Ingénieure en Génie Informatique
+            </div>
+            <h1 className="text-6xl md:text-7xl font-black tracking-tight text-slate-800">
               Maryam Gadi
             </h1>
-            <p className="text-xl text-slate-600 max-w-3xl leading-relaxed">
-              Étudiante en 2ème année de cycle ingénieur en <span className="text-blue-700 font-semibold">Génie Informatique</span> à l'ENSA de Fès. 
-              Spécialisée en <span className="text-blue-700 font-semibold">Intelligence Artificielle</span>, 
-              conception de systèmes intelligents et architectures Cloud.
+            <p className="text-xl md:text-2xl text-slate-600 max-w-4xl leading-relaxed">
+              Passionnée par l'intersection entre l'**Intelligence Artificielle** et l'ingénierie logicielle. 
+              Mon expertise se concentre sur le développement de **systèmes intelligents** capables de transformer des données brutes en décisions actionnables.
+            </p>
+            <p className="text-lg text-slate-500 max-w-4xl leading-relaxed italic border-l-4 border-blue-100 pl-6">
+              "Mon approche allie la rigueur de l'algorithmique avancée (NLP, Vision par ordinateur) à la flexibilité des architectures modernes **Cloud-Native** et **DevOps**. J'ai développé une capacité à concevoir des solutions scalables, de la preuve de concept au déploiement conteneurisé."
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-4 justify-center md:justify-start items-center">
+          <div className="flex flex-wrap gap-5 justify-center md:justify-start items-center">
             <a href="mailto:maryam04gadi@gmail.com" 
-               className="text-sm font-semibold bg-blue-700 text-white px-6 py-3 rounded-xl hover:bg-blue-800 transition-all shadow-lg shadow-blue-200">
+               className="text-md font-bold bg-blue-700 text-white px-8 py-4 rounded-2xl hover:bg-blue-800 transition-all shadow-xl shadow-blue-200 active:scale-95">
               Me contacter
             </a>
-            <div className="flex gap-6 text-sm font-medium text-slate-500">
-              <a href="https://linkedin.com/in/maryam-gadi" target="_blank" className="hover:text-blue-700 transition-colors">LinkedIn</a>
-              <a href="https://github.com/maryamgadi" target="_blank" className="hover:text-blue-700 transition-colors">GitHub</a>
+            <div className="flex gap-8 text-md font-semibold text-slate-400">
+              <a href="https://linkedin.com/in/maryam-gadi" target="_blank" className="hover:text-blue-700 transition-colors flex items-center gap-2">
+                LinkedIn ↗
+              </a>
+              <a href="https://github.com/maryamgadi" target="_blank" className="hover:text-blue-700 transition-colors flex items-center gap-2">
+                GitHub ↗
+              </a>
             </div>
           </div>
 
-          <div className="inline-flex items-center gap-3 bg-white text-blue-700 px-5 py-2.5 rounded-2xl text-sm font-bold border border-blue-100 shadow-sm">
-            <span className="relative flex h-2.5 w-2.5">
+          <div className="inline-flex items-center gap-3 bg-white text-blue-700 px-6 py-3 rounded-2xl text-sm font-black border border-blue-50 shadow-sm">
+            <span className="relative flex h-3 w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-600"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-600"></span>
             </span>
-            Disponible pour PFA : Juillet - Août 2026
+            RECHERCHE DE PFA : JUILLET — AOÛT 2026
           </div>
         </div>
       </header>
@@ -109,7 +122,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- SECTION ENGAGEMENT --- */}
+      {/* --- FOOTER / ENGAGEMENT --- */}
       <footer className="border-t border-slate-200 pt-20 pb-10">
         <h2 className="text-2xl font-bold mb-12 text-center text-slate-800">Engagement Associatif</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -129,6 +142,7 @@ export default function Home() {
   );
 }
 
+// Composant de carte réutilisable
 function ProjectCard({ project, highlight = false, isMini = false, accentColor }: { project: any, highlight?: boolean, isMini?: boolean, accentColor: string }) {
   const accentClasses: any = {
     blue: "hover:border-blue-200 border-transparent",
@@ -138,7 +152,7 @@ function ProjectCard({ project, highlight = false, isMini = false, accentColor }
   };
 
   return (
-    <Card className={`group overflow-hidden transition-all duration-300 border bg-white rounded-3xl shadow-sm ${accentClasses[accentColor]} ${highlight ? 'bg-gradient-to-br from-white to-blue-50/30 border-blue-100' : ''}`}>
+    <Card className={`group overflow-hidden transition-all duration-300 border bg-white rounded-3xl shadow-sm ${accentClasses[accentColor]} ${highlight ? 'bg-gradient-to-br from-white to-blue-50/30 border-blue-100 shadow-md' : ''}`}>
       <CardHeader className={isMini ? 'p-6' : 'p-8'}>
         <div className="flex justify-between items-start mb-4">
           <CardTitle className={`${isMini ? 'text-lg' : 'text-2xl'} font-bold text-slate-800`}>
