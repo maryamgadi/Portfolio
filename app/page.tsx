@@ -3,137 +3,109 @@ import { Badge } from "@/components/ui/badge";
 import { projects } from "@/data/projects";
 
 export default function Home() {
-  // Filtrage des projets par type
   const stages = projects.filter(p => p.type === "Stage");
   const hackathons = projects.filter(p => p.type === "Hackathon");
   const mainProjects = projects.filter(p => p.type === "Projet");
   const miniProjects = projects.filter(p => p.type === "Mini-Projet");
 
   return (
-    <main className="min-h-screen bg-slate-50/50 max-w-5xl mx-auto py-16 px-6 font-sans text-slate-900">
+    // Fond avec un dégradé très doux de rose poudré vers le blanc
+    <main className="min-h-screen bg-gradient-to-br from-[#fff5f7] via-[#f8f9ff] to-white max-w-6xl mx-auto py-20 px-8 font-sans text-slate-800">
       
-      {/* --- HERO SECTION AGRANDIE --- */}
-      <header className="mb-28 flex flex-col md:flex-row items-center md:items-center gap-16 min-h-[400px]">
-        {/* Photo de profil avec effet de profondeur */}
-        <div className="shrink-0">
-          <div className="relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-sky-400 rounded-3xl blur opacity-20"></div>
-            <img 
-              src="/profile.png" 
-              alt="Maryam Gadi" 
-              className="relative w-56 h-56 md:w-64 md:h-64 rounded-3xl object-cover border-4 border-white shadow-2xl shadow-blue-100/50"
-            />
-          </div>
+      {/* --- HERO SECTION : GIRLY & BOLD --- */}
+      <header className="mb-32 flex flex-col md:flex-row items-center gap-16">
+        <div className="shrink-0 relative">
+          {/* Halo pastel derrière la photo */}
+          <div className="absolute -inset-6 bg-gradient-to-tr from-pink-200/40 to-violet-200/40 rounded-full blur-3xl opacity-60"></div>
+          <img 
+            src="/profile.png" 
+            alt="Maryam Gadi" 
+            className="relative w-64 h-64 md:w-72 md:h-72 rounded-[3rem] object-cover border-8 border-white shadow-[0_20px_50px_rgba(255,182,193,0.2)]"
+          />
         </div>
 
         <div className="space-y-8 text-center md:text-left flex-1">
           <div className="space-y-4">
-            <div className="inline-block px-4 py-1.5 bg-blue-50 text-blue-700 rounded-lg text-sm font-bold uppercase tracking-wider">
-              Élève Ingénieure en Génie Informatique
+            <div className="inline-flex items-center gap-2 px-4 py-1 bg-white/60 backdrop-blur-sm border border-pink-100 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-pink-500 shadow-sm">
+              Ingénierie & Intelligence Artificielle
             </div>
-            <h1 className="text-6xl md:text-7xl font-black tracking-tight text-slate-800">
-              Maryam Gadi
+            
+            <h1 className="text-7xl md:text-8xl font-black tracking-tighter text-slate-900 leading-[0.9]">
+              Maryam <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-violet-400">Gadi</span>
             </h1>
-            <p className="text-xl md:text-2xl text-slate-600 max-w-4xl leading-relaxed">
-              Passionnée par l'intersection entre l'**Intelligence Artificielle** et l'ingénierie logicielle. 
-              Mon expertise se concentre sur le développement de **systèmes intelligents** capables de transformer des données brutes en décisions actionnables.
-            </p>
-            <p className="text-lg text-slate-500 max-w-4xl leading-relaxed italic border-l-4 border-blue-100 pl-6">
-              "Mon approche allie la rigueur de l'algorithmique avancée (NLP, Vision par ordinateur) à la flexibilité des architectures modernes **Cloud-Native** et **DevOps**. J'ai développé une capacité à concevoir des solutions scalables, de la preuve de concept au déploiement conteneurisé."
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-5 justify-center md:justify-start items-center">
-            <a href="mailto:maryam04gadi@gmail.com" 
-               className="text-md font-bold bg-blue-700 text-white px-8 py-4 rounded-2xl hover:bg-blue-800 transition-all shadow-xl shadow-blue-200 active:scale-95">
-              Me contacter
-            </a>
-            <div className="flex gap-8 text-md font-semibold text-slate-400">
-              <a href="https://linkedin.com/in/maryam-gadi" target="_blank" className="hover:text-blue-700 transition-colors flex items-center gap-2">
-                LinkedIn ↗
-              </a>
-              <a href="https://github.com/maryamgadi" target="_blank" className="hover:text-blue-700 transition-colors flex items-center gap-2">
-                GitHub ↗
-              </a>
+            
+            <div className="space-y-6">
+              <p className="text-2xl text-slate-600 max-w-3xl leading-relaxed font-medium">
+                Experte en <span className="text-pink-500/80">IA appliquée</span> et architectures Cloud. Je transforme des problématiques complexes en solutions logicielles élégantes.
+              </p>
+              <div className="h-1 w-20 bg-pink-200 rounded-full mx-auto md:mx-0"></div>
+              <p className="text-lg text-slate-400 max-w-2xl leading-relaxed italic font-light">
+                "Mon approche combine la précision algorithmique avec une vision centrée sur l'utilisateur, pour un impact technologique durable."
+              </p>
             </div>
           </div>
 
-          <div className="inline-flex items-center gap-3 bg-white text-blue-700 px-6 py-3 rounded-2xl text-sm font-black border border-blue-50 shadow-sm">
-            <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-600"></span>
-            </span>
-            RECHERCHE DE PFA : JUILLET — AOÛT 2026
+          <div className="flex flex-wrap gap-6 justify-center md:justify-start items-center">
+            <a href="mailto:maryam04gadi@gmail.com" 
+               className="px-10 py-5 bg-slate-900 text-white text-sm font-bold rounded-2xl hover:bg-pink-500 transition-all duration-500 shadow-xl shadow-pink-100 active:scale-95">
+              Travaillons ensemble
+            </a>
+            <div className="flex gap-8 text-xs font-black text-slate-300 tracking-widest uppercase">
+              <a href="https://linkedin.com/in/maryam-gadi" target="_blank" className="hover:text-pink-400 transition-colors">LinkedIn</a>
+              <a href="https://github.com/maryamgadi" target="_blank" className="hover:text-violet-400 transition-colors">GitHub</a>
+            </div>
           </div>
         </div>
       </header>
 
-      {/* --- SECTION STAGES --- */}
-      {stages.length > 0 && (
-        <section className="mb-20">
-          <h2 className="text-2xl font-bold mb-10 flex items-center gap-3 text-slate-800">
-            <span className="bg-blue-700 w-1.5 h-8 rounded-full"></span>
-            Expériences & Stages
-          </h2>
-          <div className="grid gap-8">
-            {stages.map((p) => (
-              <ProjectCard key={p.title} project={p} accentColor="blue" />
-            ))}
+      {/* --- SECTIONS PROJETS --- */}
+      <div className="space-y-40">
+        
+        {/* STAGES : Couleur Soft Lavender */}
+        {stages.length > 0 && (
+          <section>
+            <div className="flex items-center gap-6 mb-16">
+              <h2 className="text-sm font-black uppercase tracking-[0.5em] text-violet-300 whitespace-nowrap">Expériences</h2>
+              <div className="h-[1px] w-full bg-violet-100"></div>
+            </div>
+            <div className="grid gap-10">
+              {stages.map((p) => <ProjectCard key={p.title} project={p} theme="violet" />)}
+            </div>
+          </section>
+        )}
+
+        {/* HACKATHONS : Couleur Rose Pastel */}
+        <section>
+          <div className="flex items-center gap-6 mb-16">
+            <h2 className="text-sm font-black uppercase tracking-[0.5em] text-pink-300 whitespace-nowrap">Hackathons & IA</h2>
+            <div className="h-[1px] w-full bg-pink-100"></div>
+          </div>
+          <div className="grid gap-10">
+            {hackathons.map((p) => <ProjectCard key={p.title} project={p} theme="pink" highlight />)}
           </div>
         </section>
-      )}
 
-      {/* --- SECTION HACKATHONS --- */}
-      <section className="mb-20">
-        <h2 className="text-2xl font-bold mb-10 flex items-center gap-3 text-slate-800">
-          <span className="bg-sky-500 w-1.5 h-8 rounded-full"></span>
-          Hackathons & Innovation
-        </h2>
-        <div className="grid gap-8">
-          {hackathons.map((p) => (
-            <ProjectCard key={p.title} project={p} highlight accentColor="sky" />
-          ))}
-        </div>
-      </section>
+        {/* PROJETS : Couleur Slate/Blue Soft */}
+        <section>
+          <div className="flex items-center gap-6 mb-16">
+            <h2 className="text-sm font-black uppercase tracking-[0.5em] text-slate-300 whitespace-nowrap">Projets Techniques</h2>
+            <div className="h-[1px] w-full bg-slate-100"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {mainProjects.map((p) => <ProjectCard key={p.title} project={p} theme="slate" />)}
+          </div>
+        </section>
 
-      {/* --- SECTION PROJETS --- */}
-      <section className="mb-20">
-        <h2 className="text-2xl font-bold mb-10 flex items-center gap-3 text-slate-800">
-          <span className="bg-indigo-400 w-1.5 h-8 rounded-full"></span>
-          Projets d'Ingénierie
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {mainProjects.map((p) => (
-            <ProjectCard key={p.title} project={p} accentColor="indigo" />
-          ))}
-        </div>
-      </section>
+      </div>
 
-      {/* --- SECTION MINI-PROJETS --- */}
-      <section className="mb-24">
-        <h2 className="text-2xl font-bold mb-10 flex items-center gap-3 text-slate-800">
-          <span className="bg-slate-400 w-1.5 h-8 rounded-full"></span>
-          Mini-Projets & Labs
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {miniProjects.map((p) => (
-            <ProjectCard key={p.title} project={p} isMini accentColor="slate" />
-          ))}
-        </div>
-      </section>
-
-      {/* --- FOOTER / ENGAGEMENT --- */}
-      <footer className="border-t border-slate-200 pt-20 pb-10">
-        <h2 className="text-2xl font-bold mb-12 text-center text-slate-800">Engagement Associatif</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            { title: "Community Service Club", desc: "Membre actif au Centre Américain. Initiatives sociales et caritatives." },
-            { title: "Centre Culturel IKLIL", desc: "Animatrice bénévole. Gestion de groupes et ateliers culturels." },
-            { title: "Jardin Lalla Meryem", desc: "Coordination logistique et sensibilisation environnementale." }
-          ].map((item) => (
-            <div key={item.title} className="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow space-y-3">
-              <h3 className="font-bold text-lg text-blue-900">{item.title}</h3>
-              <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+      {/* --- FOOTER : DOUX & ÉPURÉ --- */}
+      <footer className="mt-40 border-t border-pink-50 pt-20 pb-10 text-center">
+        <p className="text-[10px] font-black uppercase tracking-[0.5em] text-slate-300 mb-12">Engagement & Bénévolat</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 max-w-4xl mx-auto">
+          {["Community Service Club", "Centre Culturel IKLIL", "Jardin Lalla Meryem"].map((club) => (
+            <div key={club} className="group">
+              <h3 className="font-bold text-slate-800 group-hover:text-pink-400 transition-colors cursor-default">{club}</h3>
+              <div className="w-0 group-hover:w-full h-[1px] bg-pink-200 mx-auto transition-all duration-500 mt-2"></div>
             </div>
           ))}
         </div>
@@ -142,52 +114,45 @@ export default function Home() {
   );
 }
 
-// Composant de carte réutilisable
-function ProjectCard({ project, highlight = false, isMini = false, accentColor }: { project: any, highlight?: boolean, isMini?: boolean, accentColor: string }) {
-  const accentClasses: any = {
-    blue: "hover:border-blue-200 border-transparent",
-    sky: "hover:border-sky-200 border-transparent",
-    indigo: "hover:border-indigo-200 border-transparent",
-    slate: "hover:border-slate-200 border-transparent",
+function ProjectCard({ project, theme, highlight = false }: { project: any, theme: 'pink' | 'violet' | 'slate', highlight?: boolean }) {
+  const styles = {
+    pink: "hover:shadow-[0_20px_50px_rgba(255,182,193,0.15)] ring-pink-100",
+    violet: "hover:shadow-[0_20px_50px_rgba(237,233,254,0.3)] ring-violet-100",
+    slate: "hover:shadow-[0_20px_50px_rgba(241,245,249,0.5)] ring-slate-100"
+  };
+
+  const textColors = {
+    pink: "text-pink-500",
+    violet: "text-violet-500",
+    slate: "text-slate-500"
   };
 
   return (
-    <Card className={`group overflow-hidden transition-all duration-300 border bg-white rounded-3xl shadow-sm ${accentClasses[accentColor]} ${highlight ? 'bg-gradient-to-br from-white to-blue-50/30 border-blue-100 shadow-md' : ''}`}>
-      <CardHeader className={isMini ? 'p-6' : 'p-8'}>
-        <div className="flex justify-between items-start mb-4">
-          <CardTitle className={`${isMini ? 'text-lg' : 'text-2xl'} font-bold text-slate-800`}>
-            {project.title}
-          </CardTitle>
-          {project.context && (
-            <Badge variant="secondary" className="bg-slate-100 text-slate-600 font-medium px-3 py-1 rounded-lg">
-              {project.context}
-            </Badge>
-          )}
-        </div>
-        <div className="flex flex-wrap gap-2">
+    <Card className={`group relative border-none rounded-[2.5rem] bg-white transition-all duration-700 shadow-[0_10px_40px_rgba(0,0,0,0.02)] ${styles[theme]} hover:-translate-y-2 ${highlight ? 'ring-1' : ''}`}>
+      <div className="p-12 space-y-8">
+        <div className="flex flex-wrap gap-3">
           {project.tags.map((tag: string) => (
-            <Badge key={tag} className="bg-blue-50 text-blue-700 border-none px-3 py-1 text-[10px] font-bold uppercase tracking-wider rounded-lg">
+            <Badge key={tag} className="bg-[#fcfcfc] text-slate-400 group-hover:text-slate-600 border-none px-4 py-1.5 text-[9px] font-black uppercase tracking-widest rounded-full transition-colors">
               {tag}
             </Badge>
           ))}
         </div>
-      </CardHeader>
-      <CardContent className={`${isMini ? 'p-6 pt-0' : 'p-8 pt-0'}`}>
-        <CardDescription className="text-slate-600 text-base leading-relaxed mb-6">
+        <div className="space-y-3">
+          <CardTitle className="text-4xl font-black text-slate-900 tracking-tighter leading-tight group-hover:translate-x-2 transition-transform duration-500">
+            {project.title}
+          </CardTitle>
+          <p className={`text-[10px] font-black uppercase tracking-[0.3em] ${textColors[theme]}`}>{project.context || 'Engineering Lab'}</p>
+        </div>
+        <CardDescription className="text-slate-500 text-lg leading-relaxed font-light max-w-2xl">
           {project.description}
         </CardDescription>
-        <a 
-          href={project.link} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-sm font-bold inline-flex items-center gap-2 text-blue-700 hover:text-blue-900 transition-colors"
-        >
-          Voir le projet 
-          <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </a>
-      </CardContent>
+        <div className="pt-4">
+          <a href={project.link} target="_blank" className="inline-flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.2em] text-slate-900">
+            Consulter le projet
+            <span className={`w-12 h-[2px] transition-all duration-500 group-hover:w-20 ${theme === 'pink' ? 'bg-pink-300' : theme === 'violet' ? 'bg-violet-300' : 'bg-slate-300'}`}></span>
+          </a>
+        </div>
+      </div>
     </Card>
   );
 }
