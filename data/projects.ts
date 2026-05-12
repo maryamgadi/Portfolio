@@ -12,14 +12,14 @@ export const projects = [
   // --- SECTION PROJETS D'INGÉNIERIE (PFA / MAJEURS) ---
   {
     title: "HCI Comparative Study",
-    type: "Projet",
+    type: "Stage",
     context: "Stage d'initiation à ENSAF",
     description: "Étude comparative et dimensionnement d'une solution d'infrastructure hyperconvergée (Dell VxRail) pour optimiser le datacenter de l'ENSA.",
     tags: ["HCI", "Dell VxRail", "Infrastructure", "Scalabilité"], // [cite: 12, 13, 15]
   },
   {
     title: "AWS-TerraDeploy-Core",
-    type: "Projet",
+    type: "Mini-Projet",
     context: "Cloud & Infrastructure",
     description: "Automatisation de l'infrastructure AWS via Terraform pour le déploiement conteneurisé d'une application avec Docker.",
     tags: ["Terraform", "AWS", "Docker", "IaaC"],
