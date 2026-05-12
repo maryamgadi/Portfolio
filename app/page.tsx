@@ -34,8 +34,8 @@ export default function Home() {
             
             <div className="space-y-6">
               <p className="text-2xl text-slate-600 max-w-4xl leading-relaxed font-medium">
-                Étudiante en **2ème année de cycle ingénieur en Génie Informatique** à l'ENSA de Fès. 
-                Je suis passionnée par l'**Intelligence Artificielle**, le **Machine Learning** et le **Développement** de solutions innovantes.
+                Étudiante en 2ème année de cycle ingénieur en Génie Informatique à l'ENSA de Fès. 
+                Je suis passionnée par l'Intelligence Artificielle, le Machine Learning et le Développement de solutions innovantes.
               </p>
               <div className="h-1 w-20 bg-pink-200 rounded-full mx-auto md:mx-0"></div>
               <p className="text-lg text-slate-400 max-w-3xl leading-relaxed italic font-light">
