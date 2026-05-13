@@ -16,6 +16,7 @@ export const projects = [
     context: "Stage d'initiation à ENSAF",
     description: "Étude comparative et dimensionnement d'une solution d'infrastructure hyperconvergée (Dell VxRail) pour optimiser le datacenter de l'ENSA.",
     tags: ["HCI", "Dell VxRail", "Infrastructure", "Scalabilité"], // [cite: 12, 13, 15]
+    link: "https://docs.google.com/document/d/1LBH755DhpON88NG7Q6P-EmWrHT1cwO2q/edit?usp=sharing&ouid=101889507539583073215&rtpof=true&sd=true"
   },
   {
     title: "AWS-TerraDeploy-Core",
